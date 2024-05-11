@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Image Effect</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box" style="--img: url(Sokuna.jpeg);"></div>
+        <div class="box" style="--img: url(devil.png);"></div>
+        <div class="box" style="--img: url(gojo.png);"></div>
+    </div>
+</body>
+
+</html>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #363a36;
+        overflow: hidden;
+        margin-top: 20vh;
+    }
+
+    .container {
+        position: relative;
+        display: flex;
+        gap: 50px;
+
+    }
+
+    .box {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        cursor: pointer;
+    }
+
+
+    .box.active span {
+        transform: translateX(var(--x)) rotate(var(--r));
+    }
+
+    .box span {
+        position: absolute;
+        width: 400px;
+        height: 2px;
+        background: var(--img);
+        background-position: center;
+        background-size: 400px;
+        background-repeat: no-repeat;
+        pointer-events: none;
+        transition: 0.5s ease-in-out;
+    }
+</style>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let boxes = document.querySelectorAll('.box');
+        boxes.forEach(function (box) {
+            let spans = [];
+            for (let i = 0; i < 200; i++) {
+                let span = document.createElement('span');
+                spans.push(span);
+                box.appendChild(span);
+                span.style.top = `${i * 1.5}px`;
+                span.style.backgroundPositionY = `${i * -1.5}px`;
+                span.style.transitionDelay = (Math.random() * 1.5) + 0 + 's';
+            }
+
+            box.addEventListener('click', function () {
+                box.classList.toggle('active');
+                spans.forEach(function (span) {
+                    span.style.setProperty('--x', Math.floor(Math.random() * 400 - 200) + 'px');
+                    span.style.setProperty('--r', Math.floor(Math.random() * 360 - 0) + 'deg');
+                });
+            });
+        });
+    });
+
+</script>
