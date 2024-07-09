@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="img1"></div>
+    <div class="img2"></div>
+    <div class="img3"></div>
+</body>
+
+<style>
+    body {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 20px;
+        justify-content: center;
+        align-items: center;
+        background-color: #ccc;
+
+        & div {
+            border-radius: 10px;
+            box-shadow: 0 0 20px #333;
+            height: 60dvh;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .img1 {
+            background-color: rgba(107, 107, 107, 0.6);
+            background-image: url(devil.png);
+        }
+
+        & .img1::before {
+            content: 'Devil';
+            position: relative;
+            top: 55dvh;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            z-index: 2;
+            color: red;
+            font-size: 40px;
+            font-weight: 700;
+            background-color: darkgrey;
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+
+        & .img2 {
+            background-color: rgba(107, 107, 107, 0.4);
+            background-image: url(sokuna.jpeg);
+            background-position: top center;
+        }
+
+        & .img2::before {
+            content: 'Sukuna';
+            position: relative;
+            top: 55dvh;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            z-index: 2;
+            color: rgba(228, 49, 40, 0.99);
+            font-size: 40px;
+            font-weight: 700;
+            background-color: darkgrey;
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        & .img3 {
+            background-color: rgba(107, 107, 107, 0.5);
+            background-image: url(gojo.png);
+        }
+
+        & .img3::before {
+            content: 'Gojo Saturo';
+            position: relative;
+            top: 55dvh;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            z-index: 2;
+            color: skyblue;
+            font-size: 40px;
+            font-weight: 700;
+            background-color: darkgrey;
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+
+    }
+</style>
+
+</html>
